@@ -20,4 +20,9 @@ public class Utils {
         options.inTargetDensity = width;
         return BitmapFactory.decodeResource(resources, R.mipmap.timg, options);
     }
+
+    //适配
+    public static float getZFormCamera() {
+        return -6 * Resources.getSystem().getDisplayMetrics().density;
+    }
 }
