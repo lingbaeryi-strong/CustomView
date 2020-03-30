@@ -17,10 +17,12 @@ import android.widget.ImageView;
 
 import com.customview.animate.CircleView;
 import com.customview.animate.PointView;
+import com.customview.animate.ProvinceUtils;
+import com.customview.animate.ProvinceView;
 
 public class MainActivity extends AppCompatActivity {
 
-    PointView view;
+    ProvinceView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +89,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         // point
-        Point targetPoint = new Point((int) Utils.dpTopixel(300), (int) Utils.dpTopixel(200));
-        ObjectAnimator animator = ObjectAnimator.ofObject(view, "point", new PointEvaluator(), targetPoint);
+//        Point targetPoint = new Point((int) Utils.dpTopixel(300), (int) Utils.dpTopixel(200));
+//        ObjectAnimator animator = ObjectAnimator.ofObject(view, "point", new PointEvaluator(), targetPoint);
+//        animator.setStartDelay(1000);
+//        animator.setDuration(2000);
+//        animator.start();
+
+
+        // province
+        ObjectAnimator animator = ObjectAnimator.ofObject(view, "province", new ProvinceEvaluator(), "台湾");
         animator.setStartDelay(1000);
         animator.setDuration(2000);
         animator.start();
     }
+
 
     class PointEvaluator implements TypeEvaluator<Point> {
         @Override
@@ -102,6 +112,17 @@ public class MainActivity extends AppCompatActivity {
             float y = startValue.y + (endValue.y - startValue.y) * fraction;
             return new Point((int) x, (int) y);
         }
-
     }
+
+
+    class ProvinceEvaluator implements TypeEvaluator<String> {
+        @Override
+        public String evaluate(float fraction, String startValue, String endValue) {
+            int startIndex = ProvinceUtils.provinces.indexOf(startValue);
+            int endIndex = ProvinceUtils.provinces.indexOf(endValue);
+            int index = (int) (startIndex + (endIndex - startIndex) * fraction);
+            return ProvinceUtils.provinces.get(index);
+        }
+    }
+
 }

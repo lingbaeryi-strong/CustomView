@@ -60,7 +60,12 @@
         <!--            android:layout_height="100dp"-->
         <!--            android:src="@mipmap/timg" />-->
 
-        <com.customview.animate.PointView
+        <!--        <com.customview.animate.PointView-->
+        <!--            android:id="@+id/view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent" />-->
+
+        <com.customview.animate.ProvinceView
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
