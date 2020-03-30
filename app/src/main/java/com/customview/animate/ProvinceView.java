@@ -20,6 +20,10 @@ public class ProvinceView extends View {
     }
 
     {
+        setLayerType(LAYER_TYPE_SOFTWARE, null);//关闭硬件加速
+//        setLayerType(LAYER_TYPE_HARDWARE, null);//开启硬件加速 额外有离屏缓冲
+//        setLayerType(LAYER_TYPE_NONE, null);//打开硬件加速
+
         paint.setTextSize(Utils.dpTopixel(100));
         paint.setTextAlign(Paint.Align.CENTER);
     }
