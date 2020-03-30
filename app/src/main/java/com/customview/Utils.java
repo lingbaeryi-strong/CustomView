@@ -11,6 +11,10 @@ public class Utils {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
     }
 
+    public static float dpTopixel(float dp) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, dp, Resources.getSystem().getDisplayMetrics());
+    }
+
     public static Bitmap getAvatar(Resources resources, int width) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
