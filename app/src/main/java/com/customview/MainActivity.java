@@ -6,6 +6,8 @@ import android.animation.AnimatorSet;
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.animation.TypeEvaluator;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -14,10 +16,11 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.customview.animate.CircleView;
+import com.customview.animate.PointView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView view;
+    PointView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +76,32 @@ public class MainActivity extends AppCompatActivity {
 
         // interpolator 差值器  默认 先加速后减速过程
 
-        view.setTranslationY(-Utils.dpTopixel(100));
-        view.animate()
-                .translationY(Utils.dpTopixel(300))
-                .setStartDelay(1000)
-                .setDuration(2000)
-                .setInterpolator(new DecelerateInterpolator())// 减速的差值器
-//                .setInterpolator(new AccelerateInterpolator())// 加速的差值器
-                .start();
+//        view.setTranslationY(-Utils.dpTopixel(100));
+//        view.animate()
+//                .translationY(Utils.dpTopixel(300))
+//                .setStartDelay(1000)
+//                .setDuration(2000)
+//                .setInterpolator(new DecelerateInterpolator())// 减速的差值器
+////                .setInterpolator(new AccelerateInterpolator())// 加速的差值器
+//                .start();
+
+
+        // point
+        Point targetPoint = new Point((int) Utils.dpTopixel(300), (int) Utils.dpTopixel(200));
+        ObjectAnimator animator = ObjectAnimator.ofObject(view, "point", new PointEvaluator(), targetPoint);
+        animator.setStartDelay(1000);
+        animator.setDuration(2000);
+        animator.start();
+    }
+
+    class PointEvaluator implements TypeEvaluator<Point> {
+        @Override
+        public Point evaluate(float fraction, Point startValue, Point endValue) {
+            //(1,1) (5,5)  fraction: 0.2  x: 1+(5-1) *0.2   y:1+(5-1)*0.2
+            float x = startValue.x + (endValue.x - startValue.x) * fraction;
+            float y = startValue.y + (endValue.y - startValue.y) * fraction;
+            return new Point((int) x, (int) y);
+        }
 
     }
 }
