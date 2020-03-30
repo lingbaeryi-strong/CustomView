@@ -6,7 +6,26 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <com.customview.AvatarView
+<!--    <com.customview.TestView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+
+
+<!--    <com.customview.Dashboard-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+
+
+<!--    <com.customview.PieChart-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+
+
+<!--    <com.customview.AvatarView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+    <com.customview.SportsView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
