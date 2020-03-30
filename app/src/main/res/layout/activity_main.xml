@@ -38,9 +38,14 @@
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="match_parent" />-->
 
-    <com.customview.CameraView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!--    <com.customiew.CameraView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <com.customview.animate.CircleView
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
