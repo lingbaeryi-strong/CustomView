@@ -22,7 +22,7 @@ import com.customview.animate.ProvinceView;
 
 public class MainActivity extends AppCompatActivity {
 
-    View view;
+    MaterialEditText view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 //        animator.setStartDelay(1000);
 //        animator.setDuration(2000);
 //        animator.start();
+
     }
 
 
