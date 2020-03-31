@@ -22,7 +22,7 @@ import com.customview.animate.ProvinceView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ProvinceView view;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         // province
-        ObjectAnimator animator = ObjectAnimator.ofObject(view, "province", new ProvinceEvaluator(), "台湾");
-        animator.setStartDelay(1000);
-        animator.setDuration(2000);
-        animator.start();
+//        ObjectAnimator animator = ObjectAnimator.ofObject(view, "province", new ProvinceEvaluator(), "台湾");
+//        animator.setStartDelay(1000);
+//        animator.setDuration(2000);
+//        animator.start();
     }
 
 
